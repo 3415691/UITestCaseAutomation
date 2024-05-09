@@ -1,0 +1,132 @@
+package Dealsdray;
+
+import java.io.File;
+import java.io.IOException;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+public class UiTestCase {
+	static {
+		System.setProperty("webdriver.chrome.driver","./driver/chromedriver.exe");
+	}
+	static {
+		System.setProperty("webdriver.gecko.driver","./driver/geckodriver.exe");
+	}
+	static WebDriver driver;
+	@Test
+	public static void verifyChrome() throws InterruptedException, IOException {
+		driver=new ChromeDriver();
+		driver.navigate().to(" https://www.getcalley.com/page-sitemap.xml");
+		String chrome = driver.getTitle();
+		System.out.println(chrome);
+		Reporter.log("chrome opended",true);
+		driver.manage().window().maximize();
+		Thread.sleep(1000);
+		driver.navigate().to("https://www.getcalley.com/");
+		TakesScreenshot t=(TakesScreenshot) driver;
+		File src = t.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f=new File("./ChromeBrowserScreenShot/FirstUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src, f);
+		Thread.sleep(2000);
+		driver.navigate().back();
+		driver.navigate().to("https://www.getcalley.com/calley-call-from-browser/");
+		TakesScreenshot t1=(TakesScreenshot) driver;
+		File src1 = t1.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f1=new File("./ChromeBrowserScreenShot/SecondUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src1, f1);
+		Thread.sleep(2000);
+		driver.navigate().back();
+		driver.navigate().to("https://www.getcalley.com/calley-pro-features/");
+		TakesScreenshot t2=(TakesScreenshot) driver;
+		File src2 = t2.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f2=new File("./ChromeBrowserScreenShot/ThirdUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src2, f2);
+		Thread.sleep(2000);
+		driver.navigate().back();
+		driver.navigate().to("https://www.getcalley.com/best-auto-dialer-app/");
+		TakesScreenshot t3=(TakesScreenshot) driver;
+		File src3 = t3.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f3=new File("./ChromeBrowserScreenShot/FourthUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src3, f3);
+		Thread.sleep(2000);
+		driver.navigate().back();
+		driver.navigate().to("https://www.getcalley.com/how-calley-auto-dialer-app-works/");
+		TakesScreenshot t4=(TakesScreenshot) driver;
+		File src4 = t4.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f4=new File("./ChromeBrowserScreenShot/FifthUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src4, f4);
+		Thread.sleep(2000);
+		driver.close();
+	}
+	@Test
+	public static void verifyFireFox() throws InterruptedException, IOException {
+	    driver=new FirefoxDriver();
+	    driver.navigate().to(" https://www.getcalley.com/page-sitemap.xml");
+		String firefox = driver.getTitle();
+		System.out.println(firefox);
+		Reporter.log("firefox opended",true);
+		driver.manage().window().maximize();
+		Thread.sleep(1000);
+		driver.navigate().to("https://www.getcalley.com/");
+		TakesScreenshot t=(TakesScreenshot) driver;
+		File src = t.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f=new File("./FireFoxBrowserScreenShot/FirstUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src, f);
+		Thread.sleep(2000);
+		driver.navigate().back();
+		driver.navigate().to("https://www.getcalley.com/calley-call-from-browser/");
+		TakesScreenshot t1=(TakesScreenshot) driver;
+		File src1 = t1.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f1=new File("./FireFoxBrowserScreenShot/SecondUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src1, f1);
+		Thread.sleep(2000);
+		driver.navigate().back();
+		driver.navigate().to("https://www.getcalley.com/calley-pro-features/");
+		TakesScreenshot t2=(TakesScreenshot) driver;
+		File src2 = t2.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f2=new File("./FireFoxBrowserScreenShot/ThirdUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src2, f2);
+		Thread.sleep(2000);
+		driver.navigate().back();
+		driver.navigate().to("https://www.getcalley.com/best-auto-dialer-app/");
+		TakesScreenshot t3=(TakesScreenshot) driver;
+		File src3 = t3.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f3=new File("./FireFoxBrowserScreenShot/FourthUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src3, f3);
+		Thread.sleep(2000);
+		driver.navigate().back();
+		driver.navigate().to("https://www.getcalley.com/how-calley-auto-dialer-app-works/");
+		TakesScreenshot t4=(TakesScreenshot) driver;
+		File src4 = t4.getScreenshotAs(OutputType.FILE);
+		Thread.sleep(1000);
+		File f4=new File("./FireFoxBrowserScreenShot/FifthUrl.png");
+		Thread.sleep(1000);
+		FileUtils.copyFile(src4, f4);
+		Thread.sleep(2000);
+		driver.close();
+	}
+}
